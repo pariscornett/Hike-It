@@ -1,6 +1,5 @@
 // Requiring our models
-var db = require("../models");
-
+var db = require("../models/trails.js");
 module.exports = function (app) {
 
     //GET route
@@ -14,7 +13,8 @@ module.exports = function (app) {
         }).then(function (dbTrail) {
             //use json in front end to specify which pieces of
             //information we want
-            res.json(dbTrail)
+            res.json(dbTrail);
+            console.log('hit get route');
         });
         // .catch(error);{
         //     //what is good stuff to put here?
@@ -40,7 +40,7 @@ module.exports = function (app) {
 
     //DELETE route
     //delete a trail
-    app.delete("/trails/delete/:id", function (req, res) {
+    app.delete("/trails/delete", function (req, res) {
         db.Trail.destroy({
             where: {
                 id: req.params.id
