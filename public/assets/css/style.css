@@ -1,5 +1,8 @@
-.container {
-    display: flex;
-    align-content: center;
-    margin: 40%;
-  }
+
+
+#form-container {
+margin: 25%;
+padding:15px;
+border-style: solid;
+border-color: black;
+}
