@@ -1,8 +1,27 @@
-
+#image-container {
+    background: url(../images/hiking-stock-photo.jpeg) ;
+    background-position: center;
+    padding: 1%;
+}
+#nav {
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    font-family: 'Dosis', sans-serif;
+}
 
 #form-container {
 margin: 25%;
-padding:15px;
-border-style: solid;
-border-color: black;
+padding:5%;
+}
+
+.container {
+
+}
+
+#form-body {
+    width: inherit;
+    color: white;
+    background: rgba(0, 0, 0, 0.2);
 }
