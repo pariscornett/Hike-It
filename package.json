@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "Project-2",
+=======
+  "name": "project-2",
+>>>>>>> 5be54840a49b08ddd1083af7d268d58e5b0713ed
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -19,9 +23,20 @@
   },
   "homepage": "https://github.com/pariscornett/Project-2#readme",
   "dependencies": {
+<<<<<<< HEAD
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "mysql2": "^1.6.5",
+=======
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "fs": "0.0.1-security",
+    "mysql": "^2.17.1",
+    "mysql2": "^1.6.5",
+    "nodemon": "^1.19.1",
+    "path": "^0.12.7",
+>>>>>>> 5be54840a49b08ddd1083af7d268d58e5b0713ed
     "sequelize": "^5.12.3"
   }
 }
