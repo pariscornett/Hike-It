@@ -1,4 +1,3 @@
-
 // *****************************************************************************
 // Server.js - This file is the initial starting point for the Node/Express server.
 //
@@ -7,7 +6,6 @@
 // =============================================================
 // require("dotenv");
 var express = require("express");
-var exphbs = require("express-handlebars");
 
 // Sets up the Express App
 // =============================================================
@@ -32,29 +30,28 @@ var db = require("./models");
 // Static directory
 app.use(express.static("public"));
 
-
-//Sets up Express-Handlebars
-
-app.engine('handlebars', exphbs({ defaultLayout: "main" }));
-app.set('view engine', 'handlebars');
-
-var routes = require("./routes/trail-routes.js");
-app.use(routes);
-
 //For passport
 app.use(session({ secret: 'my secret', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
+<<<<<<< HEAD
+=======
+// Set Handlebars.
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+>>>>>>> 6294c73986bbae936a84a75904f0c5afd0e506e4
 // Routes
 // =============================================================
+require("./controllers/trail_controller.js")(app);
 
 var authRoute = require('./controllers/auth.js')(app, passport);
 
 //Load passport strategies
 require('./config/passport.js')(passport, db.User);
-
-
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
@@ -64,6 +61,7 @@ db.sequelize.sync().then(function() {
   });
 });
 
+<<<<<<< HEAD
 
 
 
@@ -79,3 +77,5 @@ app.use(express.json());
 //var routes = require("./controllers/trail_controller.js");
 
 
+=======
+>>>>>>> 6294c73986bbae936a84a75904f0c5afd0e506e4

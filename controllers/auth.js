@@ -13,6 +13,8 @@ module.exports = function (app, passport) {
         successRedirect: '/dashboard',
 
         failureRedirect: '/'
+       //  ,        flash
+       //use passport flash to handle error message from done callback func
     }
     ));
 
