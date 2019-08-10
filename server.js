@@ -40,8 +40,14 @@ app.use(passport.session());
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
+<<<<<<< HEAD
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+=======
+var routes = require("./routes/trail-routes.js");
+require("./controllers/trail_controller.js")(app);
+app.use(routes);
+>>>>>>> 6c149386a88e50dd1280159c2c87bdd18e887cde
 
 >>>>>>> 6294c73986bbae936a84a75904f0c5afd0e506e4
 // Routes
@@ -77,5 +83,8 @@ app.use(express.json());
 //var routes = require("./controllers/trail_controller.js");
 
 
+<<<<<<< HEAD
 =======
 >>>>>>> 6294c73986bbae936a84a75904f0c5afd0e506e4
+=======
+>>>>>>> 6c149386a88e50dd1280159c2c87bdd18e887cde

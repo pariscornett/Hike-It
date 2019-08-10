@@ -1,5 +1,5 @@
 // Requiring our models
-var db = require("../models/trails.js");
+var db = require("../models");
 module.exports = function (app) {
 
     //GET route
