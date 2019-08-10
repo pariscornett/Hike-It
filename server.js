@@ -23,10 +23,20 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
+//Sets up Express-Handlebars
+
+app.engine('handlebars', exphbs({ defaultLayout: "main" }));
+app.set('view engine', 'handlebars');
+
+var routes = require("./routes/trail-routes.js");
+app.use(routes);
+
 // Routes
 // =============================================================
 
 // require("./controllers/usersController.js")(app);
+
+
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
@@ -35,3 +45,5 @@ db.sequelize.sync({ force: true }).then(function() {
     console.log("App listening on PORT " + PORT);
   });
 });
+
+
