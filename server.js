@@ -23,10 +23,17 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
+//Sets up Express-Handlebars
+
+app.engine('handlebars', exphbs({defaultLayout: "main"}));
+app.set('view engine', 'handlebars');
+
 // Routes
 // =============================================================
 
 // require("./controllers/usersController.js")(app);
+
+var routes = ("./routes/htmlRoutes.js");
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
