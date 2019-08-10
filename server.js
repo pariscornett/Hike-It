@@ -28,7 +28,7 @@ app.use(express.static("public"));
 app.engine('handlebars', exphbs({ defaultLayout: "main" }));
 app.set('view engine', 'handlebars');
 
-var routes = require("./routes/htmlRoutes.js");
+var routes = require("./routes/trail-routes.js");
 app.use(routes);
 
 // Routes
