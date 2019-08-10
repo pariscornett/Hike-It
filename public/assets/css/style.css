@@ -39,3 +39,11 @@ body {
 .btn {
     align-self: flex-end;
 }
+#search-transparency{
+    background: url(../images/search-trails-image.jpg);
+    background-position: center;
+    padding: 1%;
+    height: 100vh;
+    object-fit: cover;
+    background-attachment: fixed;
+}

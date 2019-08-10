@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -59,3 +60,6 @@ typings/
 
 # next.js build output
 .next
+=======
+node_modules
+>>>>>>> 1e99c4b084b24b661ef408820ae8c97038eea57c
