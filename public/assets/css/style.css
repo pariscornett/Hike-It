@@ -1,6 +1,6 @@
 body {
     font-family: 'Karla';
-    font-size: 1.5vw;
+    font-size: 1.0vw;
 }
 
 #image-container {
@@ -21,6 +21,10 @@ body {
     font-size: 3vh;
 }
 
+.navbar {
+    font-size: 3.5vh;
+}
+
 .nav-link {
     color: #4B4645;
 }
@@ -28,6 +32,7 @@ body {
 #form-container {
     margin: 5%;
     padding: 5%;
+    height: 100%;
 }
 
 #form-body {
