@@ -13,30 +13,47 @@
 </head>
 
 <body>
-    
-    <div class="container col-lg">
+
+    <div class="container col-lg" id="search-background">
         <nav class="navbar navbar-light bg-light" style="background-color: #e3f2fd">
-                <span class="navbar">Hike It!</span>
-                <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Search</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Favorites</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Help</a>
-                    </li>
-                  </ul>
-    </nav>
+            <span class="navbar">Hike It!</span>
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Favorites</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Help</a>
+                </li>
+            </ul>
+        </nav>
 
-    <div id="search-trail-section">
+        <div id="form-body">
+            <div id="form-container">
+                <div id="email-signup">
+                    <form>
 
+                        <div class="form-group">
+                            <label for="searchInput">Search for a trail</label>
+                            <input type="searchBox" class="form-control form-control-sm " id="trailSearch"
+                                aria-describedby="trailSearch" placeholder="Search for a trail">
+
+                        </div>
+
+
+                        <button type="submit" id= "search" class="btn btn-primary btn-dark">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-  
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="/assets/js/script.js"></script>
     <script src="/path/to/handlebars.min.js"></script>
