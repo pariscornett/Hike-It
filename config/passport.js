@@ -47,7 +47,7 @@ module.exports = function (passport, user){
                if ( user){
                    console.log("email taken done");
                    return done(null,false, {message : "That email is already taken"});
-                   //return res.send({ success : false, message : 'That email is already taken' }); jz added
+                
                } else {
                    console.log("not found user");
                    var userPassword = generateHash(password);
@@ -69,8 +69,8 @@ module.exports = function (passport, user){
                            return done(null, newUser)
                        }   
                    })
-                   .catch(Sequelize.ValidationError,function(err){
-                       console.log("validation err",err);
+                   .catch(function(err){
+                       console.log("when create new user , err",err);
                        return done (null, false,err);
                    });
                }

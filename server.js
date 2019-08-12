@@ -15,17 +15,21 @@ var PORT = process.env.PORT || 8080;
 var passport = require('passport');
 var session = require('express-session');
 var bodyParser = require('body-parser');
+var flash = require("connect-flash");
 
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//for flash message
+app.use(flash());
+
 // Requiring our models for syncing
 var db = require("./models");
 
-// // Sets up the Express app to handle data parsing
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Static directory
 app.use(express.static("public"));
@@ -45,6 +49,7 @@ app.set("view engine", "handlebars");
 // =============================================================
 
 var authRoute = require('./controllers/auth.js')(app, passport);
+
 
 //Load passport strategies
 require('./config/passport.js')(passport, db.User);
