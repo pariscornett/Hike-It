@@ -6,10 +6,9 @@ module.exports = function (app, passport) {
 
     console.log("auth route");
     app.get('/', authController.home);
-    // app.get("/",function (req, res) {
-    //     res.render("index");
-    // });
-    
+
+    app.get("/homeMsg",authController.homeMsg);
+       
     app.get('/logout', authController.logout);
 
     app.get('/dashboard', isLoggedIn, authController.dashboard)
@@ -17,7 +16,7 @@ module.exports = function (app, passport) {
     app.post('/signup', passport.authenticate('local-signup', {
   
         successRedirect: '/dashboard',        
-        failureRedirect: '/',
+        failureRedirect: '/homeMsg',
         failureFlash: true        
     }
     ));
