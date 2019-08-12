@@ -11,10 +11,9 @@ module.exports = function (app, passport) {
 
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect: '/dashboard',
-
-        failureRedirect: '/'
-       //  ,        flash
-       //use passport flash to handle error message from done callback func
+        failureRedirect: '/',
+        failureFlash: true 
+       
     }
     ));
 
