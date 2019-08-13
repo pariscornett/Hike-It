@@ -41,10 +41,6 @@ body {
     background: rgba(0, 0, 0, 0.4);
 }
 
-.btn {
-    align-self: flex-end;
-}
-
 #search-background {
     background: url(../images/search-trails-image.jpg);
     background-position: center;
@@ -53,3 +49,13 @@ body {
     object-fit: cover;
     background-attachment: fixed;
 }
+#add-trail-background {
+    background: url(../images/activity-adult-adventure-1308751.jpg);
+    background-position: center;
+    padding: 1%;
+    height: 100vh;
+    object-fit: cover;
+    background-attachment: fixed;
+}
+
+

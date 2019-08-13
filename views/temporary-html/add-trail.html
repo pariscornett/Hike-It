@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hike it!</title>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/assets/css/style.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container col-lg" id="add-trail-background">
+        <nav class="navbar navbar-light bg-light" style="background-color: #e3f2fd">
+            <span class="navbar">Hike It!</span>
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Favorites</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Help</a>
+                </li>
+            </ul>
+            <button id="user-logout" type="log-out" class="btn btn-dark"> Log out</button>
+        </nav>
+        <div id="form-body">
+            <div id="form-container">
+                <div id="email-signup">
+                    <form>
+                        <h2>Add New Trail</h2>
+
+                        <div class="form-group">
+                            <label for="trailNameInput">Trail Name</label>
+                            <input type="trailNameInput" class="form-control form-control-sm " id="trailNameInput"
+                                aria-describedby="trailNameInput" placeholder="Enter Trail Name">
+                            <div class="form-group">
+                                <label for="trailLength">Approximate Length</label>
+                                <input type="trailLength" class=" form-control form-control-sm" id="trailLength"
+                                    placeholder="Enter Approximate Length in Miles">
+                                    <div class="dropdown">
+                                     
+                                      </div>
+                            </div>
+                         
+                            <label for="difficultyRating">Difficulty Rating</label>
+                            <input type="difficultyRating" class=" form-control form-control-sm" id="difficultyRating"
+                                placeholder="Difficulty Rating">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Location">Location</label>
+                            <input type="Location" class=" form-control form-control-sm" id="Location"
+                                placeholder="Enter Location (City, State)">
+                        </div>
+                        <button type="upload" class="btn btn-primary btn-dark">Upload Photo</button>
+                        <button type="submit" class="btn btn-primary btn-dark">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- <h2 id= "slogan"> Find your new adventure</h2> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../../public/assets/js/trails.js"></script>
+</body>
+
+</html>
