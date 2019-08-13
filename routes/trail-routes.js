@@ -63,7 +63,7 @@ module.exports = function (app) {
     });
 
     //route to display the "Delete Trail" warning
-    app.get("/trails/delete", function (req, res) {
+    app.delete("/trails/delete", function (req, res) {
         db.Trail.destroy({
             where: {
                 id: req.params.id
