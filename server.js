@@ -15,14 +15,19 @@ var PORT = process.env.PORT || 8080;
 var passport = require('passport');
 var session = require('express-session');
 var bodyParser = require('body-parser');
+var flash = require("connect-flash");
 
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+//for flash message
+app.use(flash());
+
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -49,6 +54,7 @@ app.use(routes);
 // require("./controllers/usersController.js")(app);
 var authRoute = require('./controllers/auth.js')(app, passport);
 
+
 //Load passport strategies
 require('./config/passport.js')(passport, db.User);
 
@@ -58,6 +64,9 @@ require('./config/passport.js')(passport, db.User);
 db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
-  });
+  }) ;
+})
+.catch(error =>{
+  console.log("server catch err",error);
 });
 
