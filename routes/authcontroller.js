@@ -7,25 +7,25 @@ exports.home = function (req, res) {
 
 exports.homeMsg = function (req, res) {
   
-    // res.render("index",{message:req.flash("message")});
-    // console.log("req",req);
-    // console.log("home msg req flash error ",req.flash("error"));
+    console.log("home page msg",req.flash("error"));
     res.json({success:false,message: req.flash("error")});
 }
 
 exports.dashboard = function (req, res) {
     
-    var userObj = req.user;    
-    console.log("dashboard req",req);
+    var userObj = req.user;  
+    userObj.success = true;
+    // userObj.message = "registration complete";  
+    console.log("dashboard userObj",userObj);
   
-    res.render("dashboard-search",userObj );
-    // res.render("dashboard-search",{message:req.flash("message")});   
+    res.render("dashboard-search",userObj ); 
     
 }
 
 exports.logout = function (req, res) {
+    console.log("logout req",req);
+    console.log("logout res",res);
     req.session.destroy(function (err) {
         res.redirect('/');
-
     })
 }

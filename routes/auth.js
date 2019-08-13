@@ -1,4 +1,4 @@
-var authController = require('../controllers/authcontroller.js');
+var authController = require('./authcontroller.js');
 
 
 
@@ -24,11 +24,17 @@ module.exports = function (app, passport) {
 
     // @route POST /login
     // @desc logs in a user
-    app.post('/login', passport.authenticate('local-signin'),
-        function (req, res) {
-            res.redirect('/dashboard')
-        }
-    )
+    app.post('/login', passport.authenticate('local-signin', {
+  
+        successRedirect: '/dashboard',        
+        failureRedirect: '/homeMsg',
+        failureFlash: true            }
+    
+        // function (req, res) {
+        //     console.log("login flash err",req.flash("error"));
+        //     res.redirect('/dashboard')
+        // }
+    ));
 
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())

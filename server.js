@@ -48,7 +48,7 @@ app.set("view engine", "handlebars");
 // Routes
 // =============================================================
 
-var authRoute = require('./controllers/auth.js')(app, passport);
+var authRoute = require('./routes/auth.js')(app, passport);
 
 
 //Load passport strategies

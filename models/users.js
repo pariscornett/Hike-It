@@ -5,9 +5,7 @@ module.exports = function(sequelize,DataTypes){
             allowNull: false,
             // field:"user_name" ,
             unique: {
-                args: true
-                // ,
-                // msg: "User name already in use"
+                args: true                
             }       
         },
         email:{
@@ -19,8 +17,7 @@ module.exports = function(sequelize,DataTypes){
             },
             unique: {
                 args: true
-                // ,
-                // msg: "Email already in use"
+                
             }
         },
         firstName : {
@@ -52,7 +49,7 @@ module.exports = function(sequelize,DataTypes){
             // validate: {
             //     is: ["^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%^&\*])(?=.{8,})+$",'i']
             //     // ,  
-            //     // msg: "password must be a minimum of 8 characters and with one upper case letter, one number and one special character."
+                // msg: "password must be a minimum of 8 characters and with one upper case letter, one number and one special character."
             // }
         }
         

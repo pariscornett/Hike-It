@@ -34,10 +34,7 @@ module.exports = function (passport, user){
              return bcrypt.hashSync(password,bcrypt.genSaltSync(8),null);
          };
 
-         console.log("req",req);
-         console.log("email",email);
-         console.log("pass",password);
-         console.log("user",User);
+     
          User.findOne({
              where: {
                  email: email
@@ -71,6 +68,7 @@ module.exports = function (passport, user){
                    })
                    .catch(function(err){
                        console.log("when create new user , err",err);
+                    //    console.log("err.errors.message",err.errors[0].ValidationErrorItem.message);
                        return done (null, false, {message : err});
                    });
                }
@@ -94,31 +92,68 @@ module.exports = function (passport, user){
             return bcrypt.compareSync(password, userpass);
         }
 
+        var userinfo;
+        // var isValidEmail = function checkEmail(emailCheck) {
+           
+        //     var emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        
+        //     if (!emailFilter.test(emailCheck)) {           
+        //         return false;
+        //     }else{
+        //         return true;
+        //     }
+        //  }
+
+        //  if( isValidEmail(email)){
+        //        console.log("valid",email);
+        //  }else{
+        //      console.log("invalid",email);
+        //  }
+      
+       // As the email sent from client side may be user name or email , first find the user table with email,
+       //if can't find a record, then find user table with user name. If none is found, return error.
         User.findOne({
             where: {
                 email: email
             }
-        }).then(function (user) {
-            console.log("after findOne, user",user);
+        }).then(function (user) {            
+            
             if (!user) {
-                return done(null, false, { message: 'Email does not exist' });
-            }
+                User.findOne({
+                    where : {
+                        userName: email
+                    }
+                }).then(function(user){
 
-            if (!isValidPassword(user.password, password)) {
-                return done(null, false, { message: 'Incorrect password.' });
-            }
+                    if(!user){
+                        console.log("neither exists");
+                        return done(null, false, { message: 'Email or user name does not exist' });
+                    }else{
+                        if (!isValidPassword(user.password, password)) {
+                            return done(null, false, { message: 'Incorrect password.' });
+                        }
+                        userinfo = user.get();
+                        console.log("login return userinfo",userinfo);            
+                        return done(null, userinfo);
+                    }
+                    
+                }).catch(function (err) {
+                    console.log("Error:", err);
+                    return done(null, false, { message: 'Something went wrong with your Signin' });
+                });
+                
+            }else {
+           
+                if (!isValidPassword(user.password, password)) {
+                    return done(null, false, { message: 'Incorrect password.' });
+                }
+                userinfo = user.get();
+                console.log("login return userinfo",userinfo);            
+                return done(null, userinfo);
+            }    
 
-            var userinfo = user.get();
-            console.log("login return userinfo",userinfo);
-            // return res.status(200)
-            //           .json( {id:uerinfo.id,
-            //                   userName:userinfo.userName,
-            //                   firstName:userinfo.firstName,
-            //                   lastName: userinfo.lastName,
-            //                   accessLevel:userinfo.accessLevel,
-            //                   createdAt: userinfo.createdAt,
-            //                   updatedAt: userinfo.updatedAt});
-            return done(null, userinfo);
+           
+
         }).catch(function (err) {
             console.log("Error:", err);
             return done(null, false, { message: 'Something went wrong with your Signin' });
