@@ -1,12 +1,13 @@
+//listens for a click on the "sign up" form
 $("#submit-btn").on("click", function(event) {
     // event.preventDefault();
-   // pulls info from "Sign Up" form
-    var userName = $("#userName").val() //works
-    var email = $("#emailInput").val(); //undefined
-    var password = $("#Password").val(); //undefined
-    var confirmPassword = $("#confirmPassword").val(); //works
-    var firstName = $("#FirstName").val(); //undefined
-    var lastName = $("#LastName").val(); //undefined
+    //pulls data from form boxes
+    var userName = $("#userName").val() 
+    var email = $("#emailInput").val(); 
+    var password = $("#Password").val(); 
+    var confirmPassword = $("#confirmPassword").val(); 
+    var firstName = $("#FirstName").val(); 
+    var lastName = $("#LastName").val(); 
 
     //check to make sure password and confirmPassword are identical
     if (password !== confirmPassword) {
@@ -23,11 +24,13 @@ $("#submit-btn").on("click", function(event) {
         };
         console.log(newUser);
 
+        //sends object to endpoint for backend to retrieve
         $.ajax("/signup", {
             type: "POST", 
             data: newUser
         }).then (
             function(response) {
+                //should recieve a response of success, if it works
                 console.log(response);
             }
         );
