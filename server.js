@@ -46,6 +46,7 @@ app.engine('handlebars', exphbs({ defaultLayout: "main" }));
 app.set('view engine', 'handlebars');
 var routes = require("./routes/trail-routes.js");
 app.use(routes);
+require("./routes/forum-routes.js")(app);
 
 // Routes
 // =============================================================

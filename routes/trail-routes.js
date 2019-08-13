@@ -13,7 +13,7 @@ module.exports = function (app) {
 
         db.Trail.findAll({
             where: {
-                trail_city: req.params.city
+                trailCity: req.params.city
             }
         }).then(function (dbTrail) {
             res.status(200).json(dbTrail);
@@ -75,9 +75,4 @@ module.exports = function (app) {
         });
         res.render("delete-trail");
     });
-
-
-
 }
-//export all functions with
-module.exports = app;
