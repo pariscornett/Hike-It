@@ -14,8 +14,7 @@ exports.homeMsg = function (req, res) {
 exports.dashboard = function (req, res) {
     
     var userObj = req.user;  
-    userObj.success = true;
-    // userObj.message = "registration complete";  
+    userObj.success = true;    
     console.log("dashboard userObj",userObj);
   
     res.render("dashboard-search",userObj ); 

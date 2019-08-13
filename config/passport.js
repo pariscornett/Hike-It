@@ -79,7 +79,7 @@ module.exports = function (passport, user){
 
     //LOCAL SIGNIN
     passport.use('local-signin', new LocalStrategy({
-        // by default, local strategy uses username and password, we will override with email
+        // by default, local strategy uses username and password, override with email
         usernameField: 'email',
         passwordField: 'password',
         passReqToCallback: true //  pass back the entire request to the callback
@@ -93,25 +93,7 @@ module.exports = function (passport, user){
         }
 
         var userinfo;
-        // var isValidEmail = function checkEmail(emailCheck) {
-           
-        //     var emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        
-        //     if (!emailFilter.test(emailCheck)) {           
-        //         return false;
-        //     }else{
-        //         return true;
-        //     }
-        //  }
-
-        //  if( isValidEmail(email)){
-        //        console.log("valid",email);
-        //  }else{
-        //      console.log("invalid",email);
-        //  }
-      
-       // As the email sent from client side may be user name or email , first find the user table with email,
-       //if can't find a record, then find user table with user name. If none is found, return error.
+   
         User.findOne({
             where: {
                 email: email

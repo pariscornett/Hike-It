@@ -30,10 +30,6 @@ module.exports = function (app, passport) {
         failureRedirect: '/homeMsg',
         failureFlash: true            }
     
-        // function (req, res) {
-        //     console.log("login flash err",req.flash("error"));
-        //     res.redirect('/dashboard')
-        // }
     ));
 
     function isLoggedIn(req, res, next) {

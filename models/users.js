@@ -3,7 +3,6 @@ module.exports = function(sequelize,DataTypes){
         userName: {
             type: DataTypes.STRING,
             allowNull: false,
-            // field:"user_name" ,
             unique: {
                 args: true                
             }       
@@ -12,25 +11,18 @@ module.exports = function(sequelize,DataTypes){
             type: DataTypes.STRING,
             allowNull: false,
             validate:{
-                isEmail: true
-                        
-            },
-            unique: {
-                args: true
-                
+                isEmail: true                        
             }
-        },
+        },    
         firstName : {
             type: DataTypes.STRING,
             allowNull: false,
-            notEmpty: true,
-            field:"first_name"
+            notEmpty: true
         },
         lastName: {
             type: DataTypes.STRING,
             allowNull: false,
-            notEmpty: true,
-            field: "last_name"
+            notEmpty: true
         },
         accessLevel:{
             type: DataTypes.STRING,
@@ -38,9 +30,9 @@ module.exports = function(sequelize,DataTypes){
             validate: {
               isIn: [["0","1"]]
               
-            },
+            }
             //0 - for Admin, 1 for normal user 
-            field: "access_level"
+           
         },
         password:{
             type: DataTypes.STRING,
@@ -51,9 +43,8 @@ module.exports = function(sequelize,DataTypes){
             //     // ,  
                 // msg: "password must be a minimum of 8 characters and with one upper case letter, one number and one special character."
             // }
-        }
-        
-    //add methods later    
+        }        
+     
     });
      
 
