@@ -58,4 +58,36 @@ body {
     background-attachment: fixed;
 }
 
+#dashboard-info-background {
+    background: url(../images/adventure-backpack-backpacker-2539363.jpg);
+    background-position: center;
+    padding: 1%;
+    height: 100vh;
+    object-fit: cover;
+    width: 100%;
+    background-attachment: fixed;
+    
 
+}
+
+
+#results-section {
+    margin: 1.5%;
+    padding: 5%;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+
+}
+
+.card {
+    padding: 1%;
+    margin: 1%
+}
+
+#pagination-nav {
+    
+}
+
+.card-text {
+    color: gray;
+}

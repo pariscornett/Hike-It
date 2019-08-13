@@ -13,15 +13,72 @@
 <body>
 
     <div class="container col-lg" id="dashboard-info-background">
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-light bg-light" style="background-color: #e3f2fd">
             <span class="navbar">Hike It!</span>
-            <button id="existing-user-login" type="log-in" class="btn btn-dark"> Log in</button>
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Favorites</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Help</a>
+                </li>
+            </ul>
+            <button id="user-logout" type="log-out" class="btn btn-dark"> Log out</button>
         </nav>
-        
-<!-- <h2 id= "slogan"> Find your new adventure</h2> -->
+        <div>
+            <div id="results-section">
+                <div class="card-deck">
+                    <div class="card">
+                      <img class="card-img-top" src="https://berntseninternational.com/portals/1/PageBannerImages/trail-marking.jpg?ver=2016-11-17-190108-747"  alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <img class="card-img-top" src="https://berntseninternational.com/portals/1/PageBannerImages/trail-marking.jpg?ver=2016-11-17-190108-747" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <img class="card-img-top" src="https://berntseninternational.com/portals/1/PageBannerImages/trail-marking.jpg?ver=2016-11-17-190108-747" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="pagination-nav">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+            </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="../../public/assets/js/trails.js"></script>
+
+        </div>
+        <!-- <h2 id= "slogan"> Find your new adventure</h2> -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="../../public/assets/js/trails.js"></script>
 </body>
 
 </html>
