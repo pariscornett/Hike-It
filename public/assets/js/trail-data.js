@@ -8,18 +8,10 @@ $("#submit-btn").on("click", function(event) {
     var firstName = $("#FirstName").val(); //undefined
     var lastName = $("#LastName").val(); //undefined
 
-   
-    // console.log(userName);
-    // console.log(email);
-    // console.log(password);
-    // console.log(confirmPassword);
-    // console.log(firstName);
-    // console.log(lastName);
-    
-
     //check to make sure password and confirmPassword are identical
     if (password !== confirmPassword) {
         alert("Check to make sure your passwords match!");
+        return;
     } else {
         //stores above info in an object to send to backend
         var newUser = {
@@ -30,9 +22,16 @@ $("#submit-btn").on("click", function(event) {
             lastName: lastName
         };
         console.log(newUser);
-    }
 
-    
+        $.ajax("/signup", {
+            type: "POST", 
+            data: newUser
+        }).then (
+            function(response) {
+                console.log(response);
+            }
+        );
+    };
 });
 
 
