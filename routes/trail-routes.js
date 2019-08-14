@@ -24,27 +24,79 @@ module.exports = function (app) {
     });
 
     //route to display the "Add a new Trail" page
+    
+    
     app.post("/trails/add", function (req, res) {
-        console.log(req.body);
-        db.Trail.create({
-            // userName: req.body.userName,
-            trailName: req.body.trailName,
-            trailAddress: req.body.trailAddress,
-            trailCity: req.body.trailCity,
-            trailState: req.body.trailState,
-            trailLength: req.body.trailLength,
-            trailDifficulty: req.body.trailDifficulty
-        }).then(function (dbTrail) {
-            res.status(200).json({
-                trail: dbTrail,
-                success: true,
-                msg: "Trail successfully added."
-            });
-        }).catch(function (err) {
-            console.log(err);
-        });
-        res.render("add-trail");
+        if(req.isAuthenticated()){
+            var user = {
+                id: req.session.passport.user.id,
+                isloggedin: req.isAuthenticated()
+            };
+            db.Trail.create({
+                 // userName: req.body.userName,
+                 trailName: req.body.trailName,
+                 trailAddress: req.body.trailAddress,
+                 trailCity: req.body.trailCity,
+                 trailState: req.body.trailState,
+                 trailLength: req.body.trailLength,
+                 trailDifficulty: req.body.trailDifficulty
+             }).then(function (dbTrail) {
+                 res.status(200).json({
+                        trail: dbTrail,
+                         success: true,
+                     msg: "Trail successfully added."
+                 });
+             }).catch(function (err) {
+                 console.log(err);
+             });
+             
+            res.render("add-trail", user);
+        }else {
+             (function (dbTrail) {
+                 res.status(401).json({
+                     msg: "You must be logged in to view this page."
+                 });
+             });
+        }
+ 
     });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // app.post("/trails/add", function (req, res) {
+    //     console.log(req.body);
+    //     db.Trail.create({
+    //         // userName: req.body.userName,
+    //         trailName: req.body.trailName,
+    //         trailAddress: req.body.trailAddress,
+    //         trailCity: req.body.trailCity,
+    //         trailState: req.body.trailState,
+    //         trailLength: req.body.trailLength,
+    //         trailDifficulty: req.body.trailDifficulty
+    //     }).then(function (dbTrail) {
+    //         res.status(200).json({
+    //             trail: dbTrail,
+    //             success: true,
+    //             msg: "Trail successfully added."
+    //         });
+    //     }).catch(function (err) {
+    //         console.log(err);
+    //     });
+    //     res.render("add-trail");
+    // });
 
     //route to display the "Update Trail" page
     app.put("/trails/update", function (req, res) {
