@@ -21,6 +21,14 @@ exports.dashboard = function (req, res) {
     
 }
 
+exports.profile = function (req,res){
+    var userObj = req.user;  
+    userObj.success = true;    
+    console.log("profile userObj",userObj);
+  
+    res.render("user-profile",userObj ); 
+}
+
 exports.logout = function (req, res) {
     console.log("logout req",req);
     console.log("logout res",res);
