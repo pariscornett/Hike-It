@@ -3,7 +3,8 @@ module.exports = function (sequelize, DataTypes) {
         userName: {
             type: DataTypes.STRING,
             allowNull: false,
-            field: "user_name",
+            //"field" is what the column is called in the database
+            // field: "user_name",
             validate: {
                 notEmpty: {
                     args: true,
@@ -14,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
         trailName: {
             type: DataTypes.STRING,
             allowNull: false,
-            field: "trail_name",
+            // field: "trail_name",
             validate: {
                 notEmpty: {
                     args: true,
@@ -25,7 +26,7 @@ module.exports = function (sequelize, DataTypes) {
         trailAddress: {
             type: DataTypes.STRING,
             allowNull: false,
-            field: "trail_address",
+            // field: "trail_address",
             validate: {
                 notEmpty: {
                     args: true,
@@ -36,7 +37,7 @@ module.exports = function (sequelize, DataTypes) {
         trailCity: {
             type: DataTypes.STRING,
             allowNull: false,
-            field: "trail_city",
+            // field: "trail_city",
             validate: {
                 notEmpty: {
                     args: true,
@@ -47,7 +48,7 @@ module.exports = function (sequelize, DataTypes) {
         trailState: {
             type: DataTypes.STRING,
             allowNull: false,
-            field: "trail_state",
+            // field: "trail_state",
             validate: {
                 notEmpty: {
                     args: true,
@@ -58,7 +59,7 @@ module.exports = function (sequelize, DataTypes) {
         trailLength: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            field: "trail_length",
+            // field: "trail_length",
             validate: {
                 len: {
                     args: [0, 1000],
@@ -73,7 +74,7 @@ module.exports = function (sequelize, DataTypes) {
         trailDifficulty: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            field: "trail_difficulty",
+            // field: "trail_difficulty",
             validate: {
                 len: {
                     args: [1, 10],

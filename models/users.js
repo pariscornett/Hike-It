@@ -15,8 +15,7 @@ module.exports = function(sequelize,DataTypes){
             allowNull: false,
             validate:{
                 isEmail: true
-                // ,
-                // msg:  "Must input a valid email"                
+                        
             },
             unique: {
                 args: true
@@ -43,7 +42,7 @@ module.exports = function(sequelize,DataTypes){
               isIn: [["0","1"]]
               
             },
-            //0 - for Admin, 1 for normal user
+            //0 - for Admin, 1 for normal user 
             field: "access_level"
         },
         password:{

@@ -1,20 +1,23 @@
 var authController = require('../controllers/authcontroller.js');
 
+
+
 module.exports = function (app, passport) {
 
     console.log("auth route");
-    app.get('/', authController.home)
+    app.get('/', authController.home);
 
+    app.get("/homeMsg",authController.homeMsg);
+       
     app.get('/logout', authController.logout);
 
     app.get('/dashboard', isLoggedIn, authController.dashboard)
 
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/dashboard',
-
-        failureRedirect: '/'
-       //  ,        flash
-       //use passport flash to handle error message from done callback func
+  
+        successRedirect: '/dashboard',        
+        failureRedirect: '/homeMsg',
+        failureFlash: true        
     }
     ));
 
