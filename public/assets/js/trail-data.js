@@ -37,5 +37,20 @@ $("#submit-btn").on("click", function(event) {
     };
 });
 
+//listens for click on "Dashboard-Search" trail
+$("#search").on("click", function(event) {
+    //pulls city from search box
+    var city = req.params.city;
+
+    $.ajax("/trails/:city", {
+        type: "GET",
+        data: req.params.city
+    }).then (
+        function(response) {
+            //should receive an object with trail info as a response
+            console.log(response); 
+        }
+    );
+});
 
 

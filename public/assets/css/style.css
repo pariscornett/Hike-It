@@ -44,7 +44,8 @@ body {
 .btn {
     align-self: flex-end;
 }
-#search-transparency{
+
+#search-background {
     background: url(../images/search-trails-image.jpg);
     background-position: center;
     padding: 1%;
