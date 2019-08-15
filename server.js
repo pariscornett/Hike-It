@@ -48,12 +48,13 @@ app.set('view engine', 'handlebars');
 // Routes
 // =============================================================
 
-var routes = require("./routes/trail-routes.js");
-app.use(routes);
+var routes = require("./routes/trail-routes.js")(app)
+
+//app.use(routes);
 
 
 // require("./controllers/usersController.js")(app);
-var authRoute = require('./controllers/auth.js')(app, passport);
+var authRoute = require('./routes/auth.js')(app, passport);
 
 
 //Load passport strategies
