@@ -22,7 +22,9 @@ $("#submit-btn").on("click", function(event) {
             firstName: firstName,
             lastName: lastName
         };
-        console.log(newUser);
+
+        //redirect to dashboard-search page
+        window.location.href = "/dashboard-search"
 
         //sends object to endpoint for backend to retrieve
         $.ajax("/signup", {

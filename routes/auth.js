@@ -11,13 +11,13 @@ module.exports = function (app, passport) {
        
     app.get('/logout', authController.logout);
 
-    app.get('/dashboard', isLoggedIn, authController.dashboard);
+    app.get('/dashboard-search', isLoggedIn, authController.dashboard);
 
     app.get('/profile', isLoggedIn, authController.profile);
 
     app.post('/signup', passport.authenticate('local-signup', {
   
-        successRedirect: '/dashboard',        
+        successRedirect: '/dashboard-search',        
         failureRedirect: '/homeMsg',
         failureFlash: true        
     }
