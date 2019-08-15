@@ -1,6 +1,6 @@
 //listens for a click on the "sign up" form
 $("#submit-btn").on("click", function(event) {
-    // event.preventDefault();
+    event.preventDefault();
     //pulls data from form boxes
     var userName = $("#userName").val() 
     var email = $("#emailInput").val(); 
@@ -8,7 +8,7 @@ $("#submit-btn").on("click", function(event) {
     var confirmPassword = $("#confirmPassword").val(); 
     var firstName = $("#FirstName").val(); 
     var lastName = $("#LastName").val(); 
-
+    
     //check to make sure password and confirmPassword are identical
     if (password !== confirmPassword) {
         alert("Check to make sure your passwords match!");
@@ -22,9 +22,9 @@ $("#submit-btn").on("click", function(event) {
             firstName: firstName,
             lastName: lastName
         };
-
-        //redirect to dashboard-search page
-        window.location.href = "/dashboard-search"
+        
+    
+        alert("press ok");
 
         //sends object to endpoint for backend to retrieve
         $.ajax("/signup", {
@@ -34,6 +34,8 @@ $("#submit-btn").on("click", function(event) {
             function(response) {
                 //should recieve a response of success, if it works
                 console.log(response);
+                //redirect to dashboard-search page
+                window.location.href = "/dashboard-search"
             }
         );
     };
@@ -57,25 +59,25 @@ $("#search").on("click", function(event) {
 
 
 //listens for click on submit button for the "log in" form
-$(".btn-primary").on("click", function (event) {
-    //the variable userName can contain either the username OR email address   
-   var userName = $("#userName").val().trim();
-   var password = $("Password").val().trim();
+// $(".btn-primary").on("click", function (event) {
+//     //the variable userName can contain either the username OR email address   
+//    var userName = $("#userName").val().trim();
+//    var password = $("Password").val().trim();
 
-   //store this information in an object to send to the backend team
+//    //store this information in an object to send to the backend team
 
-   var loginInfo = {
-       userName: userName,
-       password: password
-   };
+//    var loginInfo = {
+//        userName: userName,
+//        password: password
+//    };
 
-   $.ajax("/login", {
-       method: "POST",
-       data: loginInfo
-   }).then(
-       function(response) {
-           console.log(response);
-       }
-   )
-})
+//    $.ajax("/login", {
+//        method: "POST",
+//        data: loginInfo
+//    }).then(
+//        function(response) {
+//            console.log(response);
+//        }
+//    )
+// })
 
