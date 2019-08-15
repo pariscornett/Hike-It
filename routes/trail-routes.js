@@ -17,10 +17,10 @@ module.exports = function (app) {
             }
         }).then(function (dbTrail) {
             res.status(200).json(dbTrail);
+            res.render("dashboard-search", dbTrail);
         }).catch(function (err) {
             console.log(err);
         });
-        res.render("dashboard-search", dbTrail);
     });
 
     //route to display the "Add a new Trail" page
@@ -42,11 +42,12 @@ module.exports = function (app) {
                     success: true,
                     msg: "Trail successfully added."
                 });
+                res.render("add-trail", user);
             }).catch(function (err) {
                 console.log(err);
             });
 
-            res.render("add-trail", user);
+
         } else {
             (function (dbTrail) {
                 res.status(401).json({
@@ -93,10 +94,10 @@ module.exports = function (app) {
             }
         ).then(function (dbTrail) {
             res.json(dbTrail);
+            res.render("update-trail");
         }).catch(function (err) {
             console.log(err);
         });
-        res.render("update-trail");
     });
 
     //route to display the "Delete Trail" warning
@@ -109,10 +110,10 @@ module.exports = function (app) {
                     }
                 }).then(function (dbTrail) {
                     res.json(dbTrail);
+                    res.render("delete-trail");
                 }).catch(function (err) {
                     console.log(err);
                 });
-                res.render("delete-trail");
             } else {
                 (function (dbTrail) {
                     res.status(401).json({
