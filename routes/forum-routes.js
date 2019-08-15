@@ -3,8 +3,8 @@ module.exports = function (app) {
 
 
 //require the express package and initialize it in the variable "app"
-var express = require("express");
-var app = express();
+// var express = require("express");
+// var app = express();
 
 //route to show all items for sale in the city
 app.get("/forum/:city", function (req, res) {
@@ -79,9 +79,5 @@ app.delete("/forum/delete", function (req, res) {
     });
     res.render("forum-delete");
 });
-
-
-
-
 
 }
