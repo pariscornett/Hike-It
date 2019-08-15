@@ -79,5 +79,3 @@ module.exports = function (app) {
 
 
 }
-//export all functions with
-module.exports = app;
