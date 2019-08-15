@@ -51,8 +51,8 @@ require("./routes/forum-routes.js")(app);
 // Routes
 // =============================================================
 
-// require("./controllers/usersController.js")(app);
-var authRoute = require('./controllers/auth.js')(app, passport);
+
+var authRoute = require('./routes/auth.js')(app, passport);
 
 
 //Load passport strategies
