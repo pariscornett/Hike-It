@@ -23,9 +23,6 @@ $("#submit-btn").on("click", function(event) {
             lastName: lastName
         };
         
-    
-        alert("press ok");
-
         //sends object to endpoint for backend to retrieve
         $.ajax("/signup", {
             type: "POST", 
@@ -43,16 +40,19 @@ $("#submit-btn").on("click", function(event) {
 
 //listens for click on "Dashboard-Search" trail
 $("#search").on("click", function(event) {
+    event.preventDefault();
+    alert("press ok");
     //pulls city from search box
-    var city = req.params.city;
-
-    $.ajax("/trails/:city", {
+    var city = $("#search").val();
+    console.log(city);
+    $.ajax("/trails/:city" + city, {
         type: "GET",
-        data: req.params.city
+        data: city
     }).then (
         function(response) {
             //should receive an object with trail info as a response
             console.log(response); 
+            window.location.href = "/dashboard-info"
         }
     );
 });
