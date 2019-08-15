@@ -28,7 +28,7 @@ module.exports = function (app, passport) {
     // @desc logs in a user
     app.post('/login', passport.authenticate('local-signin', {
   
-        successRedirect: '/dashboard',        
+        successRedirect: '/dashboard-search',        
         failureRedirect: '/homeMsg',
         failureFlash: true            }
     
