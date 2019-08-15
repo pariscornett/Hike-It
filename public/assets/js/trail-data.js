@@ -54,3 +54,26 @@ $("#search").on("click", function(event) {
 });
 
 
+//listens for click on submit button for the "log in" form
+$(".btn-primary").on("click", function (event) {
+    //the variable userName can contain either the username OR email address   
+   var userName = $("#userName").val().trim();
+   var password = $("Password").val().trim();
+
+   //store this information in an object to send to the backend team
+
+   var loginInfo = {
+       userName: userName,
+       password: password
+   };
+
+   $.ajax("/login", {
+       method: "POST",
+       data: loginInfo
+   }).then(
+       function(response) {
+           console.log(response);
+       }
+   )
+})
+
