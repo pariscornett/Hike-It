@@ -34,10 +34,7 @@ module.exports = function (passport, user){
              return bcrypt.hashSync(password,bcrypt.genSaltSync(8),null);
          };
 
-         console.log("req",req);
-         console.log("email",email);
-         console.log("pass",password);
-         console.log("user",User);
+     
          User.findOne({
              where: {
                  email: email
@@ -71,6 +68,7 @@ module.exports = function (passport, user){
                    })
                    .catch(function(err){
                        console.log("when create new user , err",err);
+                    //    console.log("err.errors.message",err.errors[0].ValidationErrorItem.message);
                        return done (null, false, {message : err});
                    });
                }
@@ -81,7 +79,7 @@ module.exports = function (passport, user){
 
     //LOCAL SIGNIN
     passport.use('local-signin', new LocalStrategy({
-        // by default, local strategy uses username and password, we will override with email
+        // by default, local strategy uses username and password, override with email
         usernameField: 'email',
         passwordField: 'password',
         passReqToCallback: true //  pass back the entire request to the callback
@@ -94,31 +92,50 @@ module.exports = function (passport, user){
             return bcrypt.compareSync(password, userpass);
         }
 
+        var userinfo;
+   
         User.findOne({
             where: {
                 email: email
             }
-        }).then(function (user) {
-            console.log("after findOne, user",user);
+        }).then(function (user) {            
+            
             if (!user) {
-                return done(null, false, { message: 'Email does not exist' });
-            }
+                User.findOne({
+                    where : {
+                        userName: email
+                    }
+                }).then(function(user){
 
-            if (!isValidPassword(user.password, password)) {
-                return done(null, false, { message: 'Incorrect password.' });
-            }
+                    if(!user){
+                        console.log("neither exists");
+                        return done(null, false, { message: 'Email or user name does not exist' });
+                    }else{
+                        if (!isValidPassword(user.password, password)) {
+                            return done(null, false, { message: 'Incorrect password.' });
+                        }
+                        userinfo = user.get();
+                        console.log("login return userinfo",userinfo);            
+                        return done(null, userinfo);
+                    }
+                    
+                }).catch(function (err) {
+                    console.log("Error:", err);
+                    return done(null, false, { message: 'Something went wrong with your Signin' });
+                });
+                
+            }else {
+           
+                if (!isValidPassword(user.password, password)) {
+                    return done(null, false, { message: 'Incorrect password.' });
+                }
+                userinfo = user.get();
+                console.log("login return userinfo",userinfo);            
+                return done(null, userinfo);
+            }    
 
-            var userinfo = user.get();
-            console.log("login return userinfo",userinfo);
-            // return res.status(200)
-            //           .json( {id:uerinfo.id,
-            //                   userName:userinfo.userName,
-            //                   firstName:userinfo.firstName,
-            //                   lastName: userinfo.lastName,
-            //                   accessLevel:userinfo.accessLevel,
-            //                   createdAt: userinfo.createdAt,
-            //                   updatedAt: userinfo.updatedAt});
-            return done(null, userinfo);
+           
+
         }).catch(function (err) {
             console.log("Error:", err);
             return done(null, false, { message: 'Something went wrong with your Signin' });

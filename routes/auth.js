@@ -16,7 +16,6 @@ module.exports = function (app, passport) {
     app.get('/profile', isLoggedIn, authController.profile);
 
     app.post('/signup', passport.authenticate('local-signup', {
-  
         successRedirect: '/dashboard-search',        
         failureRedirect: '/homeMsg',
         failureFlash: true        
@@ -39,6 +38,4 @@ module.exports = function (app, passport) {
             return next();
         res.redirect('/');
     }
-
-
 }

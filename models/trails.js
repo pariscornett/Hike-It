@@ -1,17 +1,17 @@
 module.exports = function (sequelize, DataTypes) {
     var Trail = sequelize.define("Trail", {
-        userName: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            //"field" is what the column is called in the database
-            // field: "user_name",
-            validate: {
-                notEmpty: {
-                    args: true,
-                    msg: "Username must be provided when adding a trail."
-                }
-            }
-        },
+        // userName: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     //"field" is what the column is called in the database
+        //     // field: "user_name",
+        //     validate: {
+        //         notEmpty: {
+        //             args: true,
+        //             msg: "Username must be provided when adding a trail."
+        //         }
+        //     }
+        // },
         trailName: {
             type: DataTypes.STRING,
             allowNull: false,

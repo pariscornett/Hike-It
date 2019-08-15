@@ -44,16 +44,12 @@ var exphbs = require("express-handlebars");
 app.engine('handlebars', exphbs({ defaultLayout: "main" }));
 app.set('view engine', 'handlebars');
 
-
 // Routes
 // =============================================================
+var routes = require("./routes/trail-routes.js")(app);
 
-var routes = require("./routes/trail-routes.js")(app)
+require("./routes/forum-routes.js")(app);
 
-//app.use(routes);
-
-
-// require("./controllers/usersController.js")(app);
 var authRoute = require('./routes/auth.js')(app, passport);
 
 
@@ -63,7 +59,7 @@ require('./config/passport.js')(passport, db.User);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   }) ;
