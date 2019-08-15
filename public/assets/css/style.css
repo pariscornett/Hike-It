@@ -1,104 +1,115 @@
 body {
-    font-family: 'Karla';
-    font-size: 1.0vw;
+  font-family: "Karla";
+  font-size: 1vw;
 }
 
 #image-container {
-    background: url(../images/hiking-stock-photo.jpeg);
-    background-position: center;
-    padding: 1%;
-    height: 100vh;
-    object-fit: cover;
-    background-attachment: fixed;
-
+  background: url(../images/hiking-stock-photo.jpeg);
+  background-position: center;
+  padding: 1%;
+  height: 100vh;
+  object-fit: cover;
+  background-attachment: fixed;
 }
 
 #nav {
-    z-index: 100;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    font-size: 3vh;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  font-size: 3vh;
 }
 
 .navbar {
-    font-size: 3.5vh;
+  font-size: 3.5vh;
 }
 
 .nav-link {
-    color: #4B4645;
+  color: #4b4645;
 }
 
 #form-container {
-    margin: 5%;
-    padding: 5%;
-    height: 100%;
+  margin: 5%;
+  padding: 5%;
+  height: 100%;
 }
 
 #form-body {
-    width: 70vh;
-    color: white;
-    background: rgba(0, 0, 0, 0.4);
+  width: 70vh;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 #search-background {
-    background: url(../images/search-trails-image.jpg);
-    background-position: center;
-    padding: 1%;
-    height: 100vh;
-    object-fit: cover;
-    background-attachment: fixed;
+  background: url(../images/search-trails-image.jpg);
+  background-position: center;
+  padding: 1%;
+  height: 100vh;
+  object-fit: cover;
+  background-attachment: fixed;
 }
 #add-trail-background {
-    background: url(../images/activity-adult-adventure-1308751.jpg);
-    background-position: center;
-    padding: 1%;
-    height: 100vh;
-    object-fit: cover;
-    background-attachment: fixed;
+  background: url(../images/activity-adult-adventure-1308751.jpg);
+  background-position: center;
+  padding: 1%;
+  height: 100vh;
+  object-fit: cover;
+  background-attachment: fixed;
 }
 
 #dashboard-info-background {
-    background: url(../images/adventure-backpack-backpacker-2539363.jpg);
-    background-position: center;
-    padding: 1%;
-    height: 100vh;
-    object-fit: cover;
-    width: 100%;
-    background-attachment: fixed;
-    
-
+  background: url(../images/adventure-backpack-backpacker-2539363.jpg);
+  background-position: center;
+  padding: 1%;
+  height: 100vh;
+  object-fit: cover;
+  width: 100%;
+  background-attachment: fixed;
 }
 #profile-page-image {
-    background: url(../images/background-calm-clouds-747964.jpg);
-    background-position: center;
-    padding: 1%;
-    height: 100vh;
-    object-fit: cover;
-    width: 100%;
-    background-attachment: fixed;
-    
-
+  background: url(../images/background-calm-clouds-747964.jpg);
+  background-position: center;
+  padding: 1%;
+  height: 100vh;
+  object-fit: cover;
+  width: 100%;
+  background-attachment: fixed;
 }
 
+#profile-page-container {
+  margin-top: 1%;
+  padding: 1%;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  max-height:70%;
+}
 
 #results-section {
-    margin: 1.5%;
-    padding: 4%;
-    color: white;
-    background: rgba(0, 0, 0, 0.4);
+  margin: 1.5%;
+  padding-top: 3%;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  
+}
 
+.list-group {
+  max-height: 60%;
+  overflow-y: scroll;
+}
+
+.col {
+    max-height:80%;
 }
 
 .card {
-    padding: 1%;
-    margin: 1%
+  padding: 1%;
+  margin: 1%;
 }
 
 .pagination {
-    margin-top: 1%;
+  margin-top: 1%;
 }
 
 .card-text {
-    color: gray;
+  color: gray;
 }
