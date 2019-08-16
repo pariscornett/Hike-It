@@ -25,8 +25,7 @@ exports.profile = function (req,res){
 }
 
 exports.logout = function (req, res) {
-    console.log("logout req",req);
-    console.log("logout res",res);
+    
     req.session.destroy(function (err) {
         res.redirect('/log-in');
     })

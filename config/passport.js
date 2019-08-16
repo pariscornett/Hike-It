@@ -40,13 +40,13 @@ module.exports = function (passport, user){
                  email: email
              }
          }).then(function(user){
-               console.log("sign up user",user);
+              
                if ( user){
-                   console.log("email taken done");
+                   console.log("That email is already taken");
                    return done(null,false, {message : "That email is already taken"});
                 
                } else {
-                   console.log("not found user");
+                   
                    var userPassword = generateHash(password);
                    var data = {
                        email: email,
@@ -68,7 +68,6 @@ module.exports = function (passport, user){
                    })
                    .catch(function(err){
                        console.log("when create new user , err",err);
-                    //    console.log("err.errors.message",err.errors[0].ValidationErrorItem.message);
                        return done (null, false, {message : err});
                    });
                }
@@ -79,16 +78,14 @@ module.exports = function (passport, user){
 
     //LOCAL SIGNIN
     passport.use('local-signin', new LocalStrategy({
-        // by default, local strategy uses username and password, override with email
-        usernameField: 'email',
+        // by default, local strategy uses username and password
+        usernameField: 'userName',
         passwordField: 'password',
         passReqToCallback: true //  pass back the entire request to the callback
-    }, function (req, email, password, done) {
-        console.log(req);
-    
+    }, function (req, userName, password, done) {
         var User = user;
 
-        console.log("signin  email",email);
+        console.log("signin  user name",userName);
         console.log("password",password);
         var isValidPassword = function (userpass, password) {
             return bcrypt.compareSync(password, userpass);
@@ -98,19 +95,19 @@ module.exports = function (passport, user){
    
         User.findOne({
             where: {
-                email: email
+                userName: userName
             }
         }).then(function (user) {            
             
             if (!user) {
                 User.findOne({
                     where : {
-                        userName: email
+                        email: userName
                     }
                 }).then(function(user){
 
                     if(!user){
-                        console.log("neither exists");
+                        console.log("Email or user name does not exist");
                         return done(null, false, { message: 'Email or user name does not exist' });
                     }
                         
@@ -141,7 +138,7 @@ module.exports = function (passport, user){
            
 
         }).catch(function (err) {
-            console.log("Error:", err);
+            console.log("Something went wrong with your Signin. Error:", err);
             return done(null, false, { message: 'Something went wrong with your Signin' });
         });
     }));
