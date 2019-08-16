@@ -1,13 +1,17 @@
+<<<<<<< HEAD
+
 node_modules
+.DS_Store
+
+=======
+node_modules
+>>>>>>> 48b26caa0e08c17b75dc506a01f1c908e988235f
 # Logs
 logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-
-
 
 
 # Runtime data
@@ -63,4 +67,9 @@ typings/
 .env
 
 # next.js build output
+<<<<<<< HEAD
 .next
+
+=======
+.next
+>>>>>>> 48b26caa0e08c17b75dc506a01f1c908e988235f

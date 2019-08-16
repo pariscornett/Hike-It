@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "Andr0meda13!",
+=======
+    "password": "HoloGraph4!$",
+>>>>>>> 1836b4d6fbbad0b91d0b5d206faab6b7cd57b04e
     "database": "adventures",
     "host": "127.0.0.1",
     "dialect": "mysql"
