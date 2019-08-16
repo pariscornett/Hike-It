@@ -4,10 +4,10 @@ var authController = require('./authcontroller.js');
 
 module.exports = function (app, passport) {
 
-    console.log("auth route");
+
     app.get('/', authController.home);
 
-    app.get("/homeMsg",authController.homeMsg);
+    // app.get("/homeMsg",authController.homeMsg);
        
     app.get('/logout', authController.logout);
 
@@ -24,13 +24,11 @@ module.exports = function (app, passport) {
 
     // @route POST /login
     // @desc logs in a user
-    app.post('/login', passport.authenticate('local-signin', {
-  
-        successRedirect: '/dashboard-search',        
-        failureRedirect: '/homeMsg',
-        failureFlash: true            }
+    app.post('/login', passport.authenticate('local-signin'),
+    function(req,res) { 
     
-    ));
+    res.redirect('/dashboard-search')         
+    });
 
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())

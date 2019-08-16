@@ -1,6 +1,6 @@
 body {
   font-family: "Karla";
-  font-size: 1vw;
+  font-size: 1rem;
 }
 
 #image-container {
@@ -144,3 +144,10 @@ body {
     margin:0px;
 }
 
+.table-container {
+  width:90%;
+  display:block;
+  margin:20px auto;
+  background-color:#fff;
+  
+}

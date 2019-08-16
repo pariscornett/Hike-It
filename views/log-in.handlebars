@@ -8,9 +8,9 @@
                 <li class="nav-item">
                     <a class="nav-link" id = "user-search" href="#">Search</a>
                 </li>
-                <li class="nav-item">
+                {{!-- <li class="nav-item">
                     <a class="nav-link" href="#">Favorites</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
                 </li>
@@ -20,21 +20,22 @@
         <div id="form-body">
             <div id="form-container">
                 <div id="email-signup">
-                    <form>
-                        <h2>User Log In</h2>
+                    <h2>User Log In</h2>
+                    <form id="login" name="login" method="post" action="/login">
+                        
 
                         <div class="form-group">
                            
                             <div class="form-group">
                                 <label for="log-in-info">Username</label>
-                                <input type="Username" class=" form-control form-control-sm" id="userName"
+                                <input type="text" class=" form-control form-control-sm" id="email" name = "email"
                                     placeholder="Enter Username or E-mail">
                      
 
                         <div class="form-group">
-                            <label for="Password">Password</label>
-                            <input type="password" class="form-control form-control-sm" id="Password"
-                                placeholder="Password">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control form-control-sm" id="password" name = "password"
+                                placeholder="password">
                         </div>
 
                       

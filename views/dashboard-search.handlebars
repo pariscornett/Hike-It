@@ -8,9 +8,9 @@
                 <li class="nav-item">
                     <a class="nav-link" id = "user-search" href="#">Search</a>
                 </li>
-                <li class="nav-item">
+                {{!-- <li class="nav-item">
                     <a class="nav-link" href="#">Favorites</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
                 </li>
@@ -36,10 +36,28 @@
                         <br>
                         <br>
 
-                        <button id="new-trail-redirect" type="trail-add" class="btn btn-dark"> Add new Trail</button>
+                        <a href = "/add"class="btn btn-dark"> Add new Trail</a>
                     </form>
                 </div>
             </div>
         </div>
+
+<div class="table-container">
+<table class="table">
+ <thead>
+   <tr>
+     <th scope="col">Trail Name</th>
+     <th scope="col">Trail Address</th>
+     <th scope="col">Trail City</th>
+     <th scope="col">Trail State</th>
+     <th scope="col">Trail Length</th>
+     <th scope="col">Trail Difficulty</th>
+   </tr>
+ </thead>
+ <tbody id = "found-trails">
+ </tbody>
+</table>
+</div>
+
     </div>
     </div>

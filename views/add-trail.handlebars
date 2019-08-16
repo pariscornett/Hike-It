@@ -7,10 +7,11 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id = "user-search" href="#">Search</a>
+
                 </li>
-                <li class="nav-item">
+                {{!-- <li class="nav-item">
                     <a class="nav-link" href="#">Favorites</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="#">Help</a>
                 </li>
@@ -37,6 +38,7 @@
                             <input type="difficultyRating" class=" form-control form-control-sm" id="difficultyRating"
                                 placeholder="Difficulty Rating">
                             <div class="form-group">
+
                                 <label for="Location">Trail Address</label>
                                 <input type="Location" class=" form-control form-control-sm" id="trailAddress"
                                     placeholder="Enter Trail Address">
@@ -51,8 +53,11 @@
                                 <input type="Location" class=" form-control form-control-sm" id="trailState"
                                     placeholder="Enter Trail State">
                             </div>
-                            <button type="upload" class="btn btn-primary btn-dark">Upload Photo</button>
-                            <button type="submit" class="btn btn-primary btn-dark" id="submit-new-trail">Submit</button>
+                            {{!-- <button type="upload" class="btn btn-primary btn-dark">Upload Photo</button> --}}
+                            <button class="btn btn-primary btn-dark" id="submit-new-trail">Submit</button>
+                            {{!-- <p id="success-add" style="font-size:16px; color:green">
+                                
+                            </p> --}}
                         </div>
 
 

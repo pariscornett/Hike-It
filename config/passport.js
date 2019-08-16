@@ -109,17 +109,19 @@ module.exports = function (passport, user){
                     if(!user){
                         console.log("Email or user name does not exist");
                         return done(null, false, { message: 'Email or user name does not exist' });
-                    }else{
-                        if (!isValidPassword(user.password, password)) {
+                    }
+                        
+                    if (!isValidPassword(user.password, password)) {
                             return done(null, false, { message: 'Incorrect password.' });
                         }
+
                         userinfo = user.get();
                         console.log("login return userinfo",userinfo);            
                         return done(null, userinfo);
                     }
                     
-                }).catch(function (err) {
-                    console.log("Something went wrong with your Signin. Error:", err);
+                ).catch(function (err) {
+                    console.log("Error:", err);
                     return done(null, false, { message: 'Something went wrong with your Signin' });
                 });
                 
