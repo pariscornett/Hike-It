@@ -93,10 +93,10 @@ $("login-existing-user").on("click", function (event) {
 
 
 //direct to "Add New Trail" site 
-$("#add-new-trail").on("click", function (event) {
+$("#new-trail-redirect").on("click", function (event) {
     event.preventDefault();
-    window.location.href="/add-trail"
-})
+    window.location.href="/trails/add"
+});
 
 //on.click function to add a trail
 $("#submit-new-trail").on("click", function(event) {
