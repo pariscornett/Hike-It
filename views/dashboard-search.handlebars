@@ -12,25 +12,31 @@
                     <a class="nav-link" href="#">Favorites</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Help</a>
+                    <a class="nav-link" href="#">About</a>
                 </li>
             </ul>
+            <button id="user-logout" type="log-out" class="btn btn-dark"> Log out</button>
         </nav>
 
         <div id="form-body">
             <div id="form-container">
                 <div id="email-signup">
                     <form>
-
+                        <H2 for="searchInput">Search for a trail</H2>
                         <div class="form-group">
-                            <label for="searchInput">Search for a trail</label>
+
+
                             <input type="searchBox" class="form-control form-control-sm " id="trailSearch"
                                 aria-describedby="trailSearch" placeholder="Search for a trail">
 
                         </div>
 
+                        <button type="submit" id="search" class="btn btn-primary btn-dark">Search</button>
 
-                        <button type="submit" id= "search" class="btn btn-primary btn-dark">Search</button>
+                        <br>
+                        <br>
+
+                        <button id="new-trail-redirect" type="trail-add" class="btn btn-dark"> Add new Trail</button>
                     </form>
                 </div>
             </div>

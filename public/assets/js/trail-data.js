@@ -82,6 +82,7 @@ $("login-existing-user").on("click", function (event) {
    }).then(
        function(response) {
            console.log(response);
+           window.location.href = "/dashboard-search"
        }
    )
 })
