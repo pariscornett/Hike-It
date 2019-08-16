@@ -15,6 +15,8 @@ module.exports = function (app, passport) {
 
     app.get('/profile', isLoggedIn, authController.profile);
 
+    app.get("/prelogin",authController.prelogin);
+
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect: '/dashboard-search',        
         failureRedirect: '/homeMsg',
