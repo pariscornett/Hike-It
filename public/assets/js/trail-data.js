@@ -71,7 +71,7 @@ $("#existing-user-login").on("click", function (event) {
 $("login-existing-user").on("click", function (event) {
     //the variable userName can contain either the username OR email address   
    var userName = $("#userName").val().trim();
-   var password = $("Password").val().trim();
+   var password = $("#Password").val().trim();
 
    //store this information in an object to send to the backend team
 
@@ -95,7 +95,7 @@ $("login-existing-user").on("click", function (event) {
 //direct to "Add New Trail" site 
 $("#add-new-trail").on("click", function (event) {
     event.preventDefault();
-    window.location.href="/trails/add"
+    window.location.href="/add-trail"
 })
 
 //on.click function to add a trail
