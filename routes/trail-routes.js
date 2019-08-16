@@ -16,11 +16,12 @@ module.exports = function (app) {
                 trailCity: req.params.city
             }
         }).then(function (dbTrail) {
-            res.status(200).json(dbTrail);
+            //res.status(200).json(dbTrail);
+            res.render("dashboard-info");
         }).catch(function (err) {
             console.log(err);
         });
-        res.render("dashboard-search");
+        
     });
 
     //route to display the "Add a new Trail" page

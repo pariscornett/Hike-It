@@ -41,25 +41,29 @@ $("#submit-btn").on("click", function(event) {
 //listens for click on "Dashboard-Search" trail
 $("#search").on("click", function(event) {
     event.preventDefault();
-    alert("press ok");
     //pulls city from search box
-    var city = $("#search").val();
-    console.log(city);
-    $.ajax("/trails/:city" + city, {
-        type: "GET",
-        data: city
-    }).then (
-        function(response) {
-            //should receive an object with trail info as a response
-            console.log(response); 
-        }
-    );
-       window.location.href = "/dashboard-info"
+    var city = $("#trailSearch").val().trim();
+    // console.log(city);
+    // $.ajax("/trails/:city" + city, {
+    //     type: "GET",
+    //     data: city
+    // }).then (
+    //     function(response) {
+    //         //should receive an object with trail info as a response
+    //         console.log(response); 
+    //     }
+    // );
+       window.location.href = "/trails/" + city;
 });
 
 //opens up existing user login form
 $("#existing-user-login").on("click", function (event) {
     event.preventDefault();
+
+    $.ajax("/prelogin", {
+        method: "GET",
+
+    })
     window.location.href = "/log-in"
 })
 
