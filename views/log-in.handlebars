@@ -1,0 +1,47 @@
+    <div class="container col-lg" id="image-container">
+        <nav class="navbar navbar-light bg-light" style="background-color: #e3f2fd">
+            <span class="navbar">Hike It!</span>
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link" id = "user-profile" href="#">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id = "user-search" href="#">Search</a>
+                </li>
+                {{!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Favorites</a>
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+            </ul>
+            <button id="user-logout" type="log-out" class="btn btn-dark"> Log Out </button>
+        </nav>
+        <div id="form-body">
+            <div id="form-container">
+                <div id="email-signup">
+                    <h2>User Log In</h2>
+                    <form id="login" name="login" method="post" action="/login">
+                        
+
+                        <div class="form-group">
+                           
+                            <div class="form-group">
+                                <label for="log-in-info">Username</label>
+                                <input type="text" class=" form-control form-control-sm" id="email" name = "email"
+                                    placeholder="Enter Username or E-mail">
+                     
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control form-control-sm" id="password" name = "password"
+                                placeholder="password">
+                        </div>
+
+                      
+                        <input type = "submit" class="btn btn-primary btn-dark" value="Sign In" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

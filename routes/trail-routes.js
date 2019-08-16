@@ -1,14 +1,10 @@
 // Requiring our models
 var db = require("../models");
 module.exports = function (app) {
+    app.get("/log-in", function (req, res) {
+        res.render("log-in");
+    });
 
-    //require the express package and initialize it in the variable "app"
-    // var express = require("express");
-    // var app = express();
-
-    //require the trails.js file through a direct pathway
-    //var trails = require("../public/assets/js/trails.js");
-    //route to display the "Retrieve All Trails in My City" page
     app.get("/trails/:city", function (req, res) {
 
         db.Trail.findAll({
@@ -17,19 +13,29 @@ module.exports = function (app) {
             }
         }).then(function (dbTrail) {
             res.status(200).json(dbTrail);
+
+            // res.render("dashboard-search", dbTrail);
         }).catch(function (err) {
             console.log(err);
         });
-        res.render("dashboard-search", dbTrail);
+
     });
 
     //route to display the "Add a new Trail" page
+    app.get("/add", function (req, res) {
+        // res.json({msg:"hi"})
+        res.render("add-trail");
+    })
+
 
 
     app.post("/trails/add", function (req, res) {
-        if (req.isAuthenticated()) {
+        console.log(req.body);
+
+
+        // if (req.isAuthenticated()) {
             db.Trail.create({
-                userName: req.user.userName,
+                // userName: req.user.userName,
                 trailName: req.body.trailName,
                 trailAddress: req.body.trailAddress,
                 trailCity: req.body.trailCity,
@@ -38,27 +44,21 @@ module.exports = function (app) {
                 trailDifficulty: req.body.trailDifficulty
             }).then(function (dbTrail) {
                 res.status(200).json({
-                    trail: dbTrail,
-                    success: true,
                     msg: "Trail successfully added."
                 });
             }).catch(function (err) {
                 console.log(err);
             });
-
-            res.render("add-trail", user);
-        } else {
-            (function (dbTrail) {
-                res.status(401).json({
-                    msg: "You must be logged in to view this page."
-                });
-            });
-            res.redirect("/");
-        }
+        // } else {
+        //     (function (dbTrail) {
+        //         res.status(401).json({
+        //             msg: "You must be logged in to view this page."
+        //         });
+        //     });
+        //     res.redirect("/");
+        // }
 
     });
-
-
 
 
     // app.post("/trails/add", function (req, res) {
@@ -93,10 +93,10 @@ module.exports = function (app) {
             }
         ).then(function (dbTrail) {
             res.json(dbTrail);
+            res.render("update-trail");
         }).catch(function (err) {
             console.log(err);
         });
-        res.render("update-trail");
     });
 
     //route to display the "Delete Trail" warning
@@ -109,10 +109,10 @@ module.exports = function (app) {
                     }
                 }).then(function (dbTrail) {
                     res.json(dbTrail);
+                    res.render("delete-trail");
                 }).catch(function (err) {
                     console.log(err);
                 });
-                res.render("delete-trail");
             } else {
                 (function (dbTrail) {
                     res.status(401).json({

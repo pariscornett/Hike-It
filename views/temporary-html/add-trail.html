@@ -1,17 +1,30 @@
-<div class="container col-lg" id="add-trail-background">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hike it!</title>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/assets/css/style.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container col-lg" id="add-trail-background">
         <nav class="navbar navbar-light bg-light" style="background-color: #e3f2fd">
             <span class="navbar">Hike It!</span>
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link" id = "user-profile" href="#">Profile</a>
+                    <a class="nav-link" href="#">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id = "user-search" href="#">Search</a>
-
+                    <a class="nav-link" href="#">Search</a>
                 </li>
-                {{!-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="#">Favorites</a>
-                </li> --}}
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Help</a>
                 </li>
@@ -38,26 +51,12 @@
                             <input type="difficultyRating" class=" form-control form-control-sm" id="difficultyRating"
                                 placeholder="Difficulty Rating">
                             <div class="form-group">
-
-                                <label for="Location">Trail Address</label>
-                                <input type="Location" class=" form-control form-control-sm" id="trailAddress"
-                                    placeholder="Enter Trail Address">
+                                <label for="Location">Location</label>
+                                <input type="Location" class=" form-control form-control-sm" id="Location"
+                                    placeholder="Enter Location (City, State)">
                             </div>
-                              <div class="form-group">
-                                <label for="Location">Trail City</label>
-                                <input type="Location" class=" form-control form-control-sm" id="trailCity"
-                                    placeholder="Enter Trail City">
-                            </div>
-                              <div class="form-group">
-                                <label for="Location">Trail State</label>
-                                <input type="Location" class=" form-control form-control-sm" id="trailState"
-                                    placeholder="Enter Trail State">
-                            </div>
-                            {{!-- <button type="upload" class="btn btn-primary btn-dark">Upload Photo</button> --}}
-                            <button class="btn btn-primary btn-dark" id="submit-new-trail">Submit</button>
-                            {{!-- <p id="success-add" style="font-size:16px; color:green">
-                                
-                            </p> --}}
+                            <button type="upload" class="btn btn-primary btn-dark">Upload Photo</button>
+                            <button type="submit" class="btn btn-primary btn-dark">Submit</button>
                         </div>
 
 
@@ -67,3 +66,10 @@
             </div>
         </div>
     </div>
+    <!-- <h2 id= "slogan"> Find your new adventure</h2> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../../public/assets/js/trails.js"></script>
+</body>
+
+</html>
