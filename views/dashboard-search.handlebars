@@ -3,37 +3,61 @@
             <span class="navbar">Hike It!</span>
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
+                    <a class="nav-link" id = "user-profile" href="#">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Search</a>
+                    <a class="nav-link" id = "user-search" href="#">Search</a>
                 </li>
-                <li class="nav-item">
+                {{!-- <li class="nav-item">
                     <a class="nav-link" href="#">Favorites</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Help</a>
+                    <a class="nav-link" href="#">About</a>
                 </li>
             </ul>
+            <button id="user-logout" type="log-out" class="btn btn-dark"> Log out</button>
         </nav>
 
         <div id="form-body">
             <div id="form-container">
                 <div id="email-signup">
                     <form>
-
+                        <H2 for="searchInput">Search for a trail</H2>
                         <div class="form-group">
-                            <label for="searchInput">Search for a trail</label>
+
+
                             <input type="searchBox" class="form-control form-control-sm " id="trailSearch"
                                 aria-describedby="trailSearch" placeholder="Search for a trail">
 
                         </div>
 
+                        <button type="submit" id="search" class="btn btn-primary btn-dark">Search</button>
 
-                        <button type="submit" id= "search" class="btn btn-primary btn-dark">Search</button>
+                        <br>
+                        <br>
+
+                        <a href = "/add"class="btn btn-dark"> Add new Trail</a>
                     </form>
                 </div>
             </div>
         </div>
+
+<div class="table-container">
+<table class="table">
+ <thead>
+   <tr>
+     <th scope="col">Trail Name</th>
+     <th scope="col">Trail Address</th>
+     <th scope="col">Trail City</th>
+     <th scope="col">Trail State</th>
+     <th scope="col">Trail Length</th>
+     <th scope="col">Trail Difficulty</th>
+   </tr>
+ </thead>
+ <tbody id = "found-trails">
+ </tbody>
+</table>
+</div>
+
     </div>
     </div>

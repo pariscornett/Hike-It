@@ -84,6 +84,8 @@ module.exports = function (passport, user){
         passwordField: 'password',
         passReqToCallback: true //  pass back the entire request to the callback
     }, function (req, email, password, done) {
+        console.log(req);
+    
         var User = user;
 
         console.log("signin  email",email);
@@ -110,16 +112,18 @@ module.exports = function (passport, user){
                     if(!user){
                         console.log("neither exists");
                         return done(null, false, { message: 'Email or user name does not exist' });
-                    }else{
-                        if (!isValidPassword(user.password, password)) {
+                    }
+                        
+                    if (!isValidPassword(user.password, password)) {
                             return done(null, false, { message: 'Incorrect password.' });
                         }
+
                         userinfo = user.get();
                         console.log("login return userinfo",userinfo);            
                         return done(null, userinfo);
                     }
                     
-                }).catch(function (err) {
+                ).catch(function (err) {
                     console.log("Error:", err);
                     return done(null, false, { message: 'Something went wrong with your Signin' });
                 });
