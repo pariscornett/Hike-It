@@ -17,7 +17,8 @@ module.exports = function (app) {
             }
         }).then(function (dbTrail) {
             //res.status(200).json(dbTrail);
-            res.render("dashboard-info");
+            res.render("add-trail",{dbTrail});
+            console.log("HEY THIS IS THE CONSOLE LOG" + dbTrail);
         }).catch(function (err) {
             console.log(err);
         });

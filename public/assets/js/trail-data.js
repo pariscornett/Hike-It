@@ -89,5 +89,29 @@ $("login-existing-user").on("click", function (event) {
            window.location.href = "/dashboard-search"
        }
    )
-})
+});
+
+//on.click function to add a trail
+$("#submit-new-trail").on("click", function(event) {
+    alert("You clicked this button!");
+    //event.preventDefault();
+    //store info from forms into variables
+    var trailName= $("trailNameInput").val().trim();
+    var trailAddress= $("trailAddress").val().trim();
+    var trailCity= $("#trailCity").val().trim();
+    var trailState= $("#trailState").val().trim();
+    var trailLength= $("#trailLength").val().trim();
+    var trailDifficulty= $("#difficultyRating").val().trim();
+
+    var newTrail = {
+        trailName: trailName,
+        trailAddress: trailAddress,
+        trailCity: trailCity,
+        trailState: trailState,
+        trailLength: trailLength,
+        trailDifficulty: trailDifficulty
+    };
+
+    console.log(newTrail);
+});
 
