@@ -1,5 +1,6 @@
 // Requiring our models
 var db = require("../models");
+var trailController = require('./trailController.js');
 module.exports = function (app) {
 
     //require the express package and initialize it in the variable "app"
@@ -9,7 +10,9 @@ module.exports = function (app) {
     //require the trails.js file through a direct pathway
     //var trails = require("../public/assets/js/trails.js");
     //route to display the "Retrieve All Trails in My City" page
-    app.get("/trails/:city", function (req, res) {
+    app.get( "dashboard-info",trailController.searchTrail);
+
+    app.get("/trails/:city",function (req, res) {
 
         db.Trail.findAll({
             where: {
@@ -17,7 +20,8 @@ module.exports = function (app) {
             }
         }).then(function (dbTrail) {
             res.status(200).json(dbTrail);
-            res.render("dashboard-search", dbTrail);
+            
+            // res.render("dashboard-search", dbTrail);
         }).catch(function (err) {
             console.log(err);
         });

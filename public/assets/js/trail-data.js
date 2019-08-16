@@ -53,6 +53,7 @@ $("#search").on("click", function(event) {
         function(response) {
             //should receive an object with trail info as a response
             console.log(response); 
+            window.location.href = "/dashboard-search";
         }
     );
 });
