@@ -140,4 +140,11 @@ $("#user-logout").on("click", function(event) {
 $("#user-profile").on("click", function(event) {
     event.preventDefault();
     window.location.href="/profile"
-})
+});
+
+//click event to redirect to dashboard-search when the "search" button on navbar is clicked
+$("#user-search").on("click", function (event) {
+    event.preventDefault();
+    window.location.href="/dashboard-search"
+});
+
