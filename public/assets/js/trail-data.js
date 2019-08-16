@@ -135,3 +135,9 @@ $("#user-logout").on("click", function(event) {
     window.location.href= "/"
 });
 
+
+//click event to show user profile
+$("#user-profile").on("click", function(event) {
+    event.preventDefault();
+    window.location.href="/profile"
+})
