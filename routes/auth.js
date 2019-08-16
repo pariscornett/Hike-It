@@ -11,13 +11,14 @@ module.exports = function (app, passport) {
        
     app.get('/logout', authController.logout);
 
-    app.get('/dashboard', isLoggedIn, authController.dashboard);
+    app.get('/dashboard-search', isLoggedIn, authController.dashboard);
 
     app.get('/profile', isLoggedIn, authController.profile);
 
+    app.get("/prelogin",authController.prelogin);
+
     app.post('/signup', passport.authenticate('local-signup', {
-  
-        successRedirect: '/dashboard',        
+        successRedirect: '/dashboard-search',        
         failureRedirect: '/homeMsg',
         failureFlash: true        
     }
@@ -28,7 +29,7 @@ module.exports = function (app, passport) {
     // @desc logs in a user
     app.post('/login', passport.authenticate('local-signin', {
   
-        successRedirect: '/dashboard',        
+        successRedirect: '/dashboard-search',        
         failureRedirect: '/homeMsg',
         failureFlash: true            }
     
@@ -39,9 +40,4 @@ module.exports = function (app, passport) {
             return next();
         res.redirect('/');
     }
-
-
 }
-
-
-

@@ -29,6 +29,11 @@ exports.profile = function (req,res){
     res.render("user-profile",userObj ); 
 }
 
+exports.prelogin = function (req,res){
+    console.log("prelogin");
+    res.render("log-in");
+}
+
 exports.logout = function (req, res) {
     
     req.session.destroy(function (err) {
