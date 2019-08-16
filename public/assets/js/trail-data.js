@@ -129,3 +129,9 @@ $("#submit-new-trail").on("click", function(event) {
     // console.log(newTrail);
 });
 
+//log out user
+$("#user-logout").on("click", function(event) {
+    event.preventDefault();
+    window.location.href= "/"
+});
+
