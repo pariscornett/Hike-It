@@ -52,14 +52,19 @@ $("#search").on("click", function(event) {
         function(response) {
             //should receive an object with trail info as a response
             console.log(response); 
-            window.location.href = "/dashboard-info"
         }
     );
+       window.location.href = "/dashboard-info"
 });
 
+//opens up existing user login form
+$("#existing-user-login").on("click", function (event) {
+    event.preventDefault();
+    window.location.href = "/log-in"
+})
 
 //listens for click on submit button for the "log in" form
-// $(".btn-primary").on("click", function (event) {
+// $("#existing-user-login").on("click", function (event) {
 //     //the variable userName can contain either the username OR email address   
 //    var userName = $("#userName").val().trim();
 //    var password = $("Password").val().trim();
