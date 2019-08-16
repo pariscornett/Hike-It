@@ -101,7 +101,7 @@ $("#new-trail-redirect").on("click", function (event) {
 //on.click function to add a trail
 $("#submit-new-trail").on("click", function(event) {
     alert("You clicked this button!");
-    //event.preventDefault();
+    event.preventDefault();
     //store info from forms into variables
     var trailName= $("trailNameInput").val().trim();
     var trailAddress= $("trailAddress").val().trim();
@@ -110,15 +110,22 @@ $("#submit-new-trail").on("click", function(event) {
     var trailLength= $("#trailLength").val().trim();
     var trailDifficulty= $("#difficultyRating").val().trim();
 
-    var newTrail = {
-        trailName: trailName,
-        trailAddress: trailAddress,
-        trailCity: trailCity,
-        trailState: trailState,
-        trailLength: trailLength,
-        trailDifficulty: trailDifficulty
-    };
+    console.log(trailName);
+    console.log(trailAddress);
+    console.log(trailCity);
+    console.log(trailState);
+    console.log(trailLength);
+    console.log(trailDifficulty);
 
-    console.log(newTrail);
+    // var newTrail = {
+    //     trailName: trailName,
+    //     trailAddress: trailAddress,
+    //     trailCity: trailCity,
+    //     trailState: trailState,
+    //     trailLength: trailLength,
+    //     trailDifficulty: trailDifficulty
+    // };
+
+    // console.log(newTrail);
 });
 

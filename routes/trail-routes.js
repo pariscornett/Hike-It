@@ -39,12 +39,12 @@ module.exports = function (app) {
                 trailLength: req.body.trailLength,
                 trailDifficulty: req.body.trailDifficulty
             }).then(function (dbTrail) {
-                // res.status(200).json({
-                //     trail: dbTrail,
-                //     success: true,
-                //     msg: "Trail successfully added."
-                // });
-                res.render("add-trail", user);
+                res.status(200).json({
+                    trail: dbTrail,
+                    success: true,
+                    msg: "Trail successfully added."
+                });
+                //res.render("add-trail", user);
             }).catch(function (err) {
                 console.log(err);
             });
