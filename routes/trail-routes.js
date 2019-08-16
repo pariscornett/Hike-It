@@ -16,15 +16,16 @@ module.exports = function (app) {
                 trailCity: req.params.city
             }
         }).then(function (dbTrail) {
-            res.status(200).json(dbTrail);
+            //res.status(200).json(dbTrail);
+            res.render("dashboard-info",{dbTrail});
+            console.log("HEY THIS IS THE CONSOLE LOG" + dbTrail);
         }).catch(function (err) {
             console.log(err);
         });
-        res.render("dashboard-search", dbTrail);
+        
     });
 
     //route to display the "Add a new Trail" page
-
 
     app.post("/trails/add", function (req, res) {
         if (req.isAuthenticated()) {
@@ -37,16 +38,17 @@ module.exports = function (app) {
                 trailLength: req.body.trailLength,
                 trailDifficulty: req.body.trailDifficulty
             }).then(function (dbTrail) {
-                res.status(200).json({
-                    trail: dbTrail,
-                    success: true,
-                    msg: "Trail successfully added."
-                });
+                // res.status(200).json({
+                //     trail: dbTrail,
+                //     success: true,
+                //     msg: "Trail successfully added."
+                // });
+               res.render("add-trail", user);
             }).catch(function (err) {
                 console.log(err);
             });
 
-            res.render("add-trail", user);
+          
         } else {
             (function (dbTrail) {
                 res.status(401).json({
@@ -57,8 +59,6 @@ module.exports = function (app) {
         }
 
     });
-
-
 
 
     // app.post("/trails/add", function (req, res) {

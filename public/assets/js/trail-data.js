@@ -23,9 +23,6 @@ $("#submit-btn").on("click", function(event) {
             lastName: lastName
         };
         
-    
-        alert("press ok");
-
         //sends object to endpoint for backend to retrieve
         $.ajax("/signup", {
             type: "POST", 
@@ -43,41 +40,111 @@ $("#submit-btn").on("click", function(event) {
 
 //listens for click on "Dashboard-Search" trail
 $("#search").on("click", function(event) {
+    event.preventDefault();
     //pulls city from search box
-    var city = req.params.city;
+    var city = $("#trailSearch").val().trim();
+    // console.log(city);
+    // $.ajax("/trails/:city" + city, {
+    //     type: "GET",
+    //     data: city
+    // }).then (
+    //     function(response) {
+    //         //should receive an object with trail info as a response
+    //         console.log(response); 
+    //     }
+    // );
+       window.location.href = "/trails/" + city;
+});
 
-    $.ajax("/trails/:city", {
-        type: "GET",
-        data: req.params.city
-    }).then (
-        function(response) {
-            //should receive an object with trail info as a response
-            console.log(response); 
-        }
-    );
+//opens up existing user login form
+$("#existing-user-login").on("click", function (event) {
+    event.preventDefault();
+
+    $.ajax("/prelogin", {
+        method: "GET",
+
+    })
+    window.location.href = "/log-in"
+});
+
+//listens for click on submit button for the "log in" form
+$("login-existing-user").on("click", function (event) {
+    //the variable userName can contain either the username OR email address   
+   var userName = $("#userName").val().trim();
+   var password = $("#Password").val().trim();
+
+   //store this information in an object to send to the backend team
+
+   var loginInfo = {
+       userName: userName,
+       password: password
+   };
+
+   $.ajax("/login", {
+       method: "POST",
+       data: loginInfo
+   }).then(
+       function(response) {
+           console.log(response);
+           window.location.href = "/dashboard-search"
+       }
+   )
 });
 
 
-//listens for click on submit button for the "log in" form
-// $(".btn-primary").on("click", function (event) {
-//     //the variable userName can contain either the username OR email address   
-//    var userName = $("#userName").val().trim();
-//    var password = $("Password").val().trim();
+//direct to "Add New Trail" site 
+$("#new-trail-redirect").on("click", function (event) {
+    event.preventDefault();
+    window.location.href="/trails/add"
+});
 
-//    //store this information in an object to send to the backend team
+//on.click function to add a trail
+$("#submit-new-trail").on("click", function(event) {
+    alert("You clicked this button!");
+    event.preventDefault();
+    //store info from forms into variables
+    var trailName= $("trailNameInput").val().trim();
+    var trailAddress= $("trailAddress").val().trim();
+    var trailCity= $("#trailCity").val().trim();
+    var trailState= $("#trailState").val().trim();
+    var trailLength= $("#trailLength").val().trim();
+    var trailDifficulty= $("#difficultyRating").val().trim();
 
-//    var loginInfo = {
-//        userName: userName,
-//        password: password
-//    };
+    console.log(trailName);
+    console.log(trailAddress);
+    console.log(trailCity);
+    console.log(trailState);
+    console.log(trailLength);
+    console.log(trailDifficulty);
 
-//    $.ajax("/login", {
-//        method: "POST",
-//        data: loginInfo
-//    }).then(
-//        function(response) {
-//            console.log(response);
-//        }
-//    )
-// })
+    // var newTrail = {
+    //     trailName: trailName,
+    //     trailAddress: trailAddress,
+    //     trailCity: trailCity,
+    //     trailState: trailState,
+    //     trailLength: trailLength,
+    //     trailDifficulty: trailDifficulty
+    // };
+
+    // console.log(newTrail);
+});
+
+//log out user
+$("#user-logout").on("click", function(event) {
+    event.preventDefault();
+    window.location.href= "/"
+});
+
+
+//click event to show user profile
+$("#user-profile").on("click", function(event) {
+    event.preventDefault();
+    window.location.href="/profile"
+});
+
+//click event to redirect to dashboard-search when the "search" button on navbar is clicked
+$("#user-search").on("click", function (event) {
+    event.preventDefault();
+    window.location.href="/dashboard-search"
+});
 

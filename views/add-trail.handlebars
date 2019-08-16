@@ -3,10 +3,10 @@
             <span class="navbar">Hike It!</span>
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
+                    <a class="nav-link" id = "user-profile" href="#">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Search</a>
+                    <a class="nav-link" id = "user-search" href="#">Search</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Favorites</a>
@@ -37,12 +37,22 @@
                             <input type="difficultyRating" class=" form-control form-control-sm" id="difficultyRating"
                                 placeholder="Difficulty Rating">
                             <div class="form-group">
-                                <label for="Location">Location</label>
-                                <input type="Location" class=" form-control form-control-sm" id="Location"
-                                    placeholder="Enter Location (City, State)">
+                                <label for="Location">Trail Address</label>
+                                <input type="Location" class=" form-control form-control-sm" id="trailAddress"
+                                    placeholder="Enter Trail Address">
+                            </div>
+                              <div class="form-group">
+                                <label for="Location">Trail City</label>
+                                <input type="Location" class=" form-control form-control-sm" id="trailCity"
+                                    placeholder="Enter Trail City">
+                            </div>
+                              <div class="form-group">
+                                <label for="Location">Trail State</label>
+                                <input type="Location" class=" form-control form-control-sm" id="trailState"
+                                    placeholder="Enter Trail State">
                             </div>
                             <button type="upload" class="btn btn-primary btn-dark">Upload Photo</button>
-                            <button type="submit" class="btn btn-primary btn-dark">Submit</button>
+                            <button type="submit" class="btn btn-primary btn-dark" id="submit-new-trail">Submit</button>
                         </div>
 
 

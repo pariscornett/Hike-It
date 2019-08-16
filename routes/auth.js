@@ -22,7 +22,6 @@ module.exports = function (app, passport) {
     }
     ));
 
-
     // @route POST /login
     // @desc logs in a user
     app.post('/login', passport.authenticate('local-signin', {
